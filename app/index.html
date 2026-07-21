@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
+      <header>
             <div class="icon">
                 <img src="./assets/fintrack-icon.svg" alt="icono-de-fintrack">
             </div>
@@ -18,6 +18,9 @@
                     <li><a href="#descarga"> Descarga</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </header>
         <main>
             <section  class="hero">
@@ -72,6 +75,10 @@
                 </div>
                
             </section>
+            <section class="video">
+                <h1>Conoce Fintrack!</h1>
+                <video src="./assets/Fintrack-720.mp4" width="640" height="360" controls type="video/mp4"></video>
+            </section>
             <section id="descarga" class="descarga">
                 <p class="download">Descarga gratuita</p>
                 <h1>EMPIEZA HOY.</h1>
@@ -82,6 +89,26 @@
                 <button> DESCARGALA PROXIMAMENTE EN ANDROID.</button>
             </section>
         </main>
+        <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('nav ul');
 
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navList.classList.toggle('show');
+            menuToggle.classList.toggle('open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Cierra el menú al tocar cualquier link (útil para los anchors internos)
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+            navList.classList.remove('show');
+            menuToggle.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        </script>
+        </body>
+        </html>
     </body>
 </html>
