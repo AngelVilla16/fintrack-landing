@@ -544,3 +544,48 @@ nav ul li a:hover{ color: var(--text); }
     padding: 56px 24px;
   }
 }
+/* ---------------------------------------------------------
+   SOPORTE / FORMULARIO (Tally)
+--------------------------------------------------------- */
+.formulario {
+  padding: 90px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .formulario {
+    padding: 64px 24px;
+  }
+}
+
+.formulario h1 {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.formulario > p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Contenedor e iframe de Tally */
+.formulario iframe {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.formulario iframe:hover {
+  border-color: rgba(0, 164, 101, 0.4);
+}
