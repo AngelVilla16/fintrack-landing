@@ -737,3 +737,144 @@ footer {
             font-weight: 600;
             font-size: 0.9rem;
         }
+/* ---------------------------------------------------------
+   FAQS (Preguntas Frecuentes)
+--------------------------------------------------------- */
+.faqs-container {
+  max-width: 850px;
+  margin: 40px auto 100px;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .faqs-container {
+    margin: 24px auto 64px;
+    padding: 0 20px;
+  }
+}
+
+.faqs-header {
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+}
+
+.faqs-header h1 {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.faqs-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.faqs-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 164, 101, 0.4);
+}
+
+.faq-item[open] {
+  border-color: var(--green);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question:hover {
+  background: var(--green-soft);
+}
+
+/* Indicador '+' con rotación suave a 'x' */
+.faq-question::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--green);
+  line-height: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 24px 24px 24px;
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.faq-item[open] .faq-answer {
+  animation: faqFadeIn 0.25s ease-out;
+}
+
+.faq-answer a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.faq-answer a:hover {
+  color: #00c078;
+}
+
+/* Imagen de comprobación (Virus Total) */
+.faq-item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+@keyframes faqFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
